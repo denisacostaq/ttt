@@ -30,5 +30,8 @@ deploy:
   file: 
    - build/tests
    - vuild/tests.sha1
+  skip_cleanup: true
+  draft: true
   on:
     repo: denisacostaq/ttt
+    tags: true
