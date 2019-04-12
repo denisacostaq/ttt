@@ -1,28 +1,34 @@
 language: cpp
 dist: xenial
-
 os:
-  - linux
-
+- linux
 env:
-  - CONFIG=Debug
-  
+- CONFIG=Debug
 before_install:
- - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
- - sudo apt-get update -y
- - sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev -y
- - sudo apt-get install qt5-default qttools5-dev-tools -y
- - sudo apt-get install clang -y
-
+- sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+- sudo apt-get update -y
+- sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
+  -y
+- sudo apt-get install qt5-default qttools5-dev-tools -y
+- sudo apt-get install clang -y
 script:
-  - mkdir build
-  - cd build
-  - export CXX="clang++"
-  - export CC="clang"
-  - qmake ..
-  - make -j 3
-  - cd ..
-
+- mkdir build
+- cd build
+- export CXX="clang++"
+- export CC="clang"
+- qmake ..
+- make -j 3
+- sha1sum tests > tests.sha1
+- cd ..
 notifications:
   email:
-    - denisacostaq@gmail.com
+  - denisacostaq@gmail.com
+deploy:
+  provider: releases
+  api_key:
+    secure: AvLIrPtCSSuPeRfmQ4LNBtoLGFd/ZdHu1X606NDVFvbUwNHiQBb1ljVSlYPcYqX8A+4RghlbaCX1tn/7Sf6MBE7s7oXKInVERm9dgrZH/VZKw53JcelO4vj7qpwKqzaT3Qs0sfLZbzHdmw1ayzQsaG5iL7jaH/qC9n/kKTIP9TJ/3TUgohZsZkdUNVbIYXXpS4bmBjzaW0hDUZCwsS+J4y7Do+N/soM9XanLUdHzi9TRqKretJg1f9EHJnC0Jnt1BH4r3hrYFuLa7bLlk6/pIHFefE/ByPYR9DwCKxkqggs0z8PWhCeZf8T/Sw7+2jNUewdCdg5LVSEAPuJJPc9UjOqyjznrywMldiyjC0tOjVn4Myag+bSs7pJb9bIYRNCpGuenT2WMR2ik+qJeTVFbKQNyDvJUtMdh1FfABxkn/BEPKKNTMa/4o2G5Z5NWlliD1r32ydPse55PCrG2HAJPyzSpmzzA0hyZ12pv7kraPx3UaB8NmYufrRbWrUeaZZI7i/WdQd1Ah9DK5tXkzEUivecrteEVW5sHCe0XyVrzg02uX98vI5prcYflKdNAwIIw6qlzxsVBDZCVXmhcvcGILsTVQWu3UpFc5C82AvWYjICw6X5lqsRaLm/5vVGdu3Kpry/OVhqBqPZF6YjN7xtYyF/uLDv7s8cOq9+2YD/uI4U=
+  file: 
+   - build/tests
+   - vuild/tests.sha1
+  on:
+    repo: denisacostaq/ttt
