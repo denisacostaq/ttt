@@ -5,6 +5,8 @@ os:
 env:
 - CONFIG=Debug
 before_install:
+- export
+- echo "aaaaaaaaaaaaaa TRAVIS_TAG $TRAVIS_TAG TRAVIS_TAG"
 - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
 - sudo apt-get update -y
 - sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
