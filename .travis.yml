@@ -16,7 +16,7 @@ script:
 - export CXX="clang++"
 - export CC="clang"
 - qmake ..
-- make -j 3
+- make
 - sha1sum tests > tests.sha1
 - cd ..
 notifications:
@@ -28,7 +28,7 @@ deploy:
     secure: 2jrcrbZ1Tb1iSpGEUdex/mLYx4HQfo/1P+MiEi72Y0TS7tHOVjmGLO9C004T4iqP1QqzhtYsLUR9l7qq8zKtgT4+MNYo24Ho3RKxJ8C/WH4tjrGOc2I7fdrqREMtoRuhlNj4tw+IOC/DZWc794hp6iey5XstOFX1hsWcc5jenv9I2Xkhp6K5P2ZybBQ5/9Za5LfuXhw7oI4LMtUN0vPZVAcPtkowyOlbh9u4MKJR327lYQKr6tF1qPsvW5phCx9ixPmS6i+Afa5mSfB8KXCoLyF+wu1ef5FmsHcx+3vb0h7beBqmEwLQZRIdzgitZ+6Bj9WrV8qNCBspgdyoPqrM4ojjHiUwMzk8gsnviyzdluSX6dhG/ue1QDYQ7POpSVkYjzwkSjxPxJgrz1PKDr1JWXCw018sFZK60XG9VH7THNqXnrfpIAp62w94XkLthTVaIpCsYy31CJqYXWR6Vynp9ER0ebqTV26srevPjVG2ffRJeyrhkOodUvZstaX4GoaTfFOQ8zWsMXUR3yWe7VAXbLE9RM66EoSET8G4WnhZTkIjKeGsULdiHTOzkpxejJOZelPn2qUX5D4XOkCgzMSTaeUMKBl2Eiwk9he76xJm4J7x0nuaYgUbMpXplkzdNgb2nSkCESLJjHx/beMeeFGdIGKcGpIqTi/QWZl019A/wVM=
   file:
    - build/tests
-   - vuild/tests.sha1
+   - build/tests.sha1
   skip_cleanup: true
   draft: true
   on:
