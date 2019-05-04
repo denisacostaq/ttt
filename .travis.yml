@@ -11,6 +11,11 @@ before_install:
 - sudo apt-get install qt5-default qttools5-dev-tools -y
 - sudo apt-get install clang -y
 script:
+- mkdir rr
+- cd rr
+- wget -c --progress=bar https://github.com/llvm/llvm-project/archive/llvmorg-7.1.0.tar.gz
+- ls
+- exit 1
 - mkdir build
 - cd build
 - export CXX="clang++"
