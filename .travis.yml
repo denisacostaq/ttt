@@ -1,7 +1,8 @@
 language: cpp
-dist: xenial
-os:
-- linux
+matrix:
+  include:
+    - os: linux
+    - os: osx
 env:
 - CONFIG=Debug
 before_install:
@@ -19,9 +20,11 @@ script:
 - ls llvm-project-llvmorg-7.1.0/
 - mkdir bb
 - cd bb
-- cmake ../llvm-project-llvmorg-7.1.0/llvm -DLLVM_ENABLE_PROJECTS="clang"
+- cmake ../llvm-project-llvmorg-7.1.0/llvm -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE="Release"
 - make help
 - make clang-format
+- find . -name clang-format
+- ls -l ./bin/clang-format
 - exit 1
 - mkdir build
 - cd build
