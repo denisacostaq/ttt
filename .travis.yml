@@ -20,7 +20,7 @@ script:
 - mkdir bb
 - cd bb
 - cmake ../llvm-project-llvmorg-7.1.0/llvm
-- make clang-format
+- make help
 - exit 1
 - mkdir build
 - cd build
