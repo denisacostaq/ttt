@@ -19,8 +19,9 @@ script:
 - ls llvm-project-llvmorg-7.1.0/
 - mkdir bb
 - cd bb
-- cmake ../llvm-project-llvmorg-7.1.0/llvm
+- cmake ../llvm-project-llvmorg-7.1.0/llvm -DLLVM_ENABLE_PROJECTS="clang"
 - make help
+- make clang-format
 - exit 1
 - mkdir build
 - cd build
