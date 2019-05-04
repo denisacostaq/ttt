@@ -19,7 +19,7 @@ script:
 - ls llvm-project-llvmorg-7.1.0/
 - mkdir bb
 - cd bb
-- cmake ../llvm-project-llvmorg-7.1.0/
+- cmake ../llvm-project-llvmorg-7.1.0/llvm
 - make clang-format
 - exit 1
 - mkdir build
